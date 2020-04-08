@@ -3,8 +3,8 @@
 // Declare app level module which depends on views, and core components
 angular.module('myApp', [
   'ngRoute',
-  //'myApp.view1',
-  //'myApp.view2',
+  'ngMaterial', 
+  'ngMessages',
   'ui.router',
   'myApp.version'
 ]).
@@ -27,6 +27,13 @@ config( function($stateProvider, $locationProvider, $routeProvider, $urlRouterPr
     controller: 'LoginCtrl',
     templateUrl: './components/login/login.html',
   }
+  
+  var registerState = {
+    name: 'register',
+    url: '/register',
+    controller: 'RegisterCtrl',
+    templateUrl: './components/register/register.html',
+  }
 
 
   $urlRouterProvider.otherwise('/');
@@ -34,4 +41,5 @@ config( function($stateProvider, $locationProvider, $routeProvider, $urlRouterPr
   
   $stateProvider.state(homeState);
   $stateProvider.state(loginState);
+  $stateProvider.state(registerState);
 });

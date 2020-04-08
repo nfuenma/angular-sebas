@@ -1,0 +1,75 @@
+<div ng-controller="RegisterCtrl" layout="column" layout-align="center center" layout-fill="layout-fill">
+
+  <div layout="column" class="registerForm md-whiteframe-z1">
+    <md-toolbar>
+      <h2 class="md-toolbar-tools"><span>Registro</span></h2>
+    </md-toolbar>
+
+    <div class="intoRegister">
+        <div layout="row">
+            <md-input-container flex="50">
+            <label>Nombre</label>
+            <input required name="clientName" ng-model="project.clientName">
+            <div ng-messages="projectForm.clientName.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+            </md-input-container>
+
+            <md-input-container flex="50">
+                <label>Apellido</label>
+                <input required name="clientName" ng-model="project.clientName">
+                <div ng-messages="projectForm.clientName.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+                </md-input-container>
+
+            <md-input-container flex="50">
+            <label>Tipo de usuario</label>
+            <md-select name="type" ng-model="project.type" required>
+                <md-option value="app">Usuario</md-option>
+                <md-option value="web">Administrador</md-option>
+            </md-select>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <input required type="email" name="clientEmail" ng-model="project.clientEmail"
+                    minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+            <div ng-messages="projectForm.clientEmail.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                Your email must be between 10 and 100 characters long and look like an e-mail address.
+            </div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <md-checkbox name="tos" ng-model="project.tos" required>
+            Acepto los terminos.
+            </md-checkbox>
+            <div ng-messages="projectForm.tos.$error" multiple md-auto-hide="false">
+            <div ng-message="required">
+                You must accept the terms of service before you can proceed.
+            </div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <md-switch class="md-primary" name="special" ng-model="project.special" required>
+                Permitir el envio de correo.
+            </md-switch>
+            <div ng-messages="projectForm.special.$error" multiple>
+            <div ng-message="required">
+                You must enable all special options before you can proceed.
+            </div>
+            </div>
+        </md-input-container>
+        <div >
+            <md-button ng-click="doGreeting()" class="md-raised md-primary" type="submit">Registrar</md-button>
+        </div>
+
+    
+    </div>
+</md-content>
+</div>

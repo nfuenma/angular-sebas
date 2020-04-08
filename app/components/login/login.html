@@ -1,8 +1,29 @@
-<div layout="row" layout-xs="column">
-  <div flex>
-    I'm above on mobile, and to the left on larger devices.
+<div ng-controller="LoginCtrl" layout="column" layout-align="center center" layout-fill="layout-fill">
+    <div layout="column" class="loginBox md-whiteframe-z1">
+      <md-toolbar>
+        <h2 class="md-toolbar-tools"><span>Inicio de Sesion</span></h2>
+      </md-toolbar>
+      <form name="loginForm">
+        <md-content layout="column" class="md-padding">
+          <md-input-container>
+            <label>Usuario</label>
+            <input required type="text" ng-model="loginModel.username" name="username" />
+            <div ng-messages="loginForm.username.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input required type="password" ng-model="loginModel.password" name="password" />
+            <div ng-messages="loginForm.password.$error" role="alert">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <div layout="row" layout-align="center center">
+            <md-button ng-click="doGreeting()" type="submit" class="md-raised md-primary">Iniciar Sesion</md-button>
+            <div flex="flex"></div>
+            <md-button href="" md-no-ink>Forgot Password</md-button>
+          </div>
+      </form>
+    </div>
   </div>
-  <div flex>
-    I'm below on mobile, and to the right on larger devices.
-  </div>
-</div>

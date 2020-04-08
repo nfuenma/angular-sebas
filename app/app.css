@@ -8,11 +8,11 @@
 }
 
 .menu:before {
-  content: "[";
+  content: "";
 }
 
 .menu:after {
-  content: "]";
+  content: "";
 }
 
 .menu > li {
@@ -20,6 +20,22 @@
 }
 
 .menu > li + li:before {
-  content: "|";
+  content: "";
   padding-right: 0.3em;
+}
+
+.loginBox {
+  margin-top: 50px;
+  min-width: 50vw;
+  max-width: 90vw;
+}
+
+.registerForm {
+  margin-top: 50px;
+  min-width: 80vw;
+  max-width: 90vw;
+}
+
+.intoRegister {
+  margin: 10px;
 }
