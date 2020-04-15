@@ -39,3 +39,14 @@
 .intoRegister {
   margin: 10px;
 }
+
+.loginBotton {
+  margin-top: -18px;
+  flex: flow;
+  
+}
+
+md-nav-bar md-nav-ink-bar {
+  color: rgb(5, 49, 194);
+  background-color: rgb(5, 49, 194);
+}

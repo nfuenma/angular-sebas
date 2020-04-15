@@ -1,4 +1,4 @@
-<div ng-controller="RegisterCtrl" layout="column" layout-align="center center" layout-fill="layout-fill">
+<div layout="column" layout-align="center center" layout-fill="layout-fill">
 
   <div layout="column" class="registerForm md-whiteframe-z1">
     <md-toolbar>
@@ -9,7 +9,7 @@
         <div layout="row">
             <md-input-container flex="50">
             <label>Nombre</label>
-            <input required name="clientName" ng-model="project.clientName">
+            <input required name="clientName" ng-model="project.name">
             <div ng-messages="projectForm.clientName.$error">
                 <div ng-message="required">This is required.</div>
             </div>
@@ -17,7 +17,7 @@
 
             <md-input-container flex="50">
                 <label>Apellido</label>
-                <input required name="clientName" ng-model="project.clientName">
+                <input required name="clientName" ng-model="project.lastName">
                 <div ng-messages="projectForm.clientName.$error">
                     <div ng-message="required">This is required.</div>
                 </div>
@@ -25,16 +25,16 @@
 
             <md-input-container flex="50">
             <label>Tipo de usuario</label>
-            <md-select name="type" ng-model="project.type" required>
-                <md-option value="app">Usuario</md-option>
-                <md-option value="web">Administrador</md-option>
+            <md-select name="type" ng-model="project.userType" required>
+                <md-option value="user">Usuario</md-option>
+                <md-option value="admin">Administrador</md-option>
             </md-select>
             </md-input-container>
         </div>
 
         <md-input-container class="md-block">
             <label>Email</label>
-            <input required type="email" name="clientEmail" ng-model="project.clientEmail"
+            <input required type="email" name="clientEmail" ng-model="project.email"
                     minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
 
             <div ng-messages="projectForm.clientEmail.$error" role="alert">
@@ -66,7 +66,14 @@
             </div>
         </md-input-container>
         <div >
-            <md-button ng-click="doGreeting()" class="md-raised md-primary" type="submit">Registrar</md-button>
+            <md-button ng-click="Register(project)" class="md-raised md-primary" type="submit">Registrar</md-button>
+            <modal-form
+                button="Iniciar Sesion"
+                title="Inicio de Sesion"
+                type="login"
+                action="Iniciar Sesion"
+            >      
+            </modal-form>
         </div>
 
     

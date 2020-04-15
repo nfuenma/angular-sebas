@@ -2,9 +2,12 @@
 
 // angular.module('myApp.view2', ['ngRoute'])
 
-angular.module("myApp").controller('ctrlRegister', function (Utils, $scope) {
+angular.module("myApp").controller('ctrlUser', function (Utils, $rootScope, $scope) {
   
   $scope.Utils = Utils
   $scope.Register = Utils.register
+  $scope.getData = Utils.getData
 
+    
+  
 });

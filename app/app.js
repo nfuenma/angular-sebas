@@ -24,15 +24,22 @@ config( function($stateProvider, $locationProvider, $urlRouterProvider) {
   var loginState = {
     name: 'login',
     url: '/login',
-    controller: 'LoginCtrl',
+    controller: 'ctrlLogin',
     templateUrl: './components/login/login.html',
   }
   
   var registerState = {
     name: 'register',
     url: '/register',
-    controller: 'RegisterCtrl',
+    controller: 'ctrlRegister',
     templateUrl: './components/register/register.html',
+  }
+
+  var userState = {
+    name: 'users',
+    url: '/users',
+    controller: 'ctrlUser',
+    templateUrl: './components/users/index.html',
   }
 
 
@@ -42,4 +49,5 @@ config( function($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider.state(homeState);
   $stateProvider.state(loginState);
   $stateProvider.state(registerState);
+  $stateProvider.state(userState);
 });
