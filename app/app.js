@@ -6,6 +6,7 @@ angular.module('myApp', [
   'ngMaterial', 
   'ngMessages',
   'ui.router',
+  'ui.calendar',
   'myApp.version'
 ]).
 config( function($stateProvider, $locationProvider, $urlRouterProvider) {
@@ -42,6 +43,13 @@ config( function($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: './components/users/index.html',
   }
 
+  var calendarState = {
+    name: 'calendar',
+    url: '/calendar',
+    controller: 'ctrlCalendar',
+    templateUrl: './components/calendar/calendar.html',
+  }
+
 
   $urlRouterProvider.otherwise('/');
 
@@ -50,4 +58,5 @@ config( function($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider.state(loginState);
   $stateProvider.state(registerState);
   $stateProvider.state(userState);
+  $stateProvider.state(calendarState);
 });

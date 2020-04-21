@@ -22,10 +22,12 @@
       <md-nav-item md-nav-href="/#!/login" name="login">Login</md-nav-item>
       <md-nav-item md-nav-href="/#!/register" name="register">Registro</md-nav-item>
       <md-nav-item md-nav-href="/#!/users" name="users">Usuarios</md-nav-item>
+      <md-nav-item md-nav-href="/#!/calendar" name="calendar">Calendario</md-nav-item>
 
     </md-nav-bar>
     <div class="ext-content">
       <div ui-view></div>
+
     </div>
   </md-content>
 
@@ -42,14 +44,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.25/angular-ui-router.min.js"></script>
-  <script src="app.js"></script>
   
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+  <!-- jquery, moment, and angular have to get included before fullcalendar -->
+  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="../bower_components/fullcalendar/dist/gcal.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-ui-calendar/src/calendar.js"></script>
+
+  <script src="app.js"></script>
+
   <script src="./factory/initials.js"></script>
   <script src="./directives/card-info.js"></script>
   <script src="./components/login/login.js"></script>
   <script src="./components/users/users.js"></script>
   <script src="./directives/modal-form.js"></script>
   <script src="./components/register/register.js"></script>
+  <script src="./components/calendar/calendar.js"></script>
+
+  
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
