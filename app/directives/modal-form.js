@@ -1,5 +1,4 @@
 angular.module("myApp").directive('modalForm', ['$rootScope', '$mdDialog', function($rootScope, $mdDialog){
-    
     return{
       restrict: 'E',
       scope: {
@@ -26,11 +25,7 @@ angular.module("myApp").directive('modalForm', ['$rootScope', '$mdDialog', funct
         }
         scope.closeModal = function(){
             $mdDialog.hide()
-
-
-            
         }
-       
       }
     };
   }]);

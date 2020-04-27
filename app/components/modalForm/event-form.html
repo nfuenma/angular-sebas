@@ -1,0 +1,35 @@
+<div layout="column"  layout-align="center center" layout-fill="layout-fill">
+    <div layout="column" class="md-whiteframe-z1">
+      <md-toolbar>
+        <h2 class="md-toolbar-tools"><span>Agenda de eventos</span></h2>
+      </md-toolbar>
+      <form name="loginForm">
+        <md-content layout="column" class="md-padding">
+          <md-input-container>
+            <label>Nombre del Evento</label>
+            <input  type="text" ng-model="event.title"/>
+          </md-input-container>
+          <md-input-container>
+            <label>Fecha</label>
+            <input type="text" disabled ng-model="event.start"/>
+          </md-input-container>
+          <md-input-container>
+            <div layout="row" layout-align="space-between center">
+              <span>Seleccione la sala</span>
+              <md-select ng-model="event.room" placeholder="Sala" class="md-no-underline">
+                <md-option value="Sala principal">Sala principal</md-option>
+                <md-option value="Sala paris">Sala paris</md-option>
+                <md-option value="Sala Corona">Sala Corona</md-option>
+                <md-option value="Sala central">Sala central</md-option>
+              </md-select>
+            </div>      
+          </md-input-container>
+          <textarea id="tinyId" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+          <div layout="row" layout-align="center center">
+            <md-button ng-click="createEvent(event, start)" class="md-raised md-primary">Guardar</md-button>
+            <div flex="flex"></div>
+            <md-button ng-click="closeModal()" md-no-ink>Cerrar</md-button>
+          </div>
+      </form>
+    </div>
+</div>

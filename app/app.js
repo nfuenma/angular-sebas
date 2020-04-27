@@ -7,6 +7,9 @@ angular.module('myApp', [
   'ngMessages',
   'ui.router',
   'ui.calendar',
+  'LocalStorageModule',
+  'angularMoment',
+  'ui.tinymce',
   'myApp.version'
 ]).
 config( function($stateProvider, $locationProvider, $urlRouterProvider) {

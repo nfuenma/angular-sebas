@@ -21,7 +21,7 @@ angular.module("myApp").controller('ctrlLogin', function (Utils, $scope, $mdDial
 
     function DialogController($scope, $mdDialog) {
     
-            $scope.data = "data";
+      $scope.data = "data";
         
     }
 

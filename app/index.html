@@ -36,6 +36,7 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
@@ -47,15 +48,18 @@
   
   <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
   <!-- jquery, moment, and angular have to get included before fullcalendar -->
-  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-  <script type="text/javascript" src="../bower_components/fullcalendar/dist/gcal.js"></script>
-  <script type="text/javascript" src="../bower_components/angular-ui-calendar/src/calendar.js"></script>
+  <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
 
+  <script type="text/javascript" src="bower_components/tinymce/tinymce.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+  <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+  <script type="text/javascript" src="local-storage/angular-local-storage.min.js"></script>
+  <script src="bower_components/angular-moment/angular-moment.js"></script>
   <script src="app.js"></script>
 
+  <script src="./filters/filter.js"></script>
   <script src="./factory/initials.js"></script>
   <script src="./directives/card-info.js"></script>
   <script src="./components/login/login.js"></script>
@@ -63,7 +67,6 @@
   <script src="./directives/modal-form.js"></script>
   <script src="./components/register/register.js"></script>
   <script src="./components/calendar/calendar.js"></script>
-
   
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
