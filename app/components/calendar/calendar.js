@@ -9,10 +9,10 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
   $scope.eventSources =  [$scope.events];
 
 
-  $scope.showDialog = function (date_clicked) {
+  $scope.showDialog = function () {
     
     var parentEl = angular.element(document.body);
-    localStorageService.set("start", date_clicked)
+    
     console.log("SCOPE", $scope)
     $mdDialog.show({
       parent: parentEl,
@@ -20,6 +20,7 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
       clickOutsideToClose: true,
       scope: $scope,
       preserveScope: true,
+      //openForm: {height: 800}
     }).then(function(result) {
       //result contains username and password
     }, function(){
@@ -28,18 +29,27 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
     });
   }
 
-  $scope.tinymceModel = 'Initial content';
-
   $scope.tinymceOptions = {
     plugins: 'link image code',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright ',
     
+
   };
 
+
+  $scope.validation = function(){
+    let value = false;
+
+    if ($scope.event.title != undefined && $scope.event.room != undefined){
+      value = true
+    }
+    return value
+  }
 
   $scope.saveText = function() {
     $scope.data = $scope.tinymceModel
     console.log("DATA", $scope.data)
+  
   }
 
    $scope.addEvent = function() {
@@ -63,7 +73,7 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
       title: $scope.event.title,
       start: $scope.event.started,
       room: $scope.event.room,
-      url: "http://google.com/",
+      description: $scope.event.tinymceModel,
       allDay: true
     });
   
@@ -88,6 +98,26 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
     console.log("dateClicked", date._d)   
   
     $scope.showDialog()
+  }
+
+  $scope.eventClickEvent = function(data) {
+    $scope.eventSave = data
+    console.log("EVENTO SHOW",$scope)
+    var parentEl = angular.element(document.body);
+    
+    $mdDialog.show({
+      parent: parentEl,
+      templateUrl:'./components/calendar/event-show.html',
+      clickOutsideToClose: true,
+      scope: $scope,
+      preserveScope: true,
+      //openForm: {height: 800}
+    }).then(function(result) {
+      //result contains username and password
+    }, function(){
+      console.log("EXITED")
+      //modal exited/cancelled
+    });
   }
 
   $scope.alertOnDrop = function(date, allDay, jsEvent, view ){

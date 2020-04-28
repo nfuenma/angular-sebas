@@ -10,6 +10,7 @@ angular.module('myApp', [
   'LocalStorageModule',
   'angularMoment',
   'ui.tinymce',
+  'mgo-angular-wizard',
   'myApp.version'
 ]).
 config( function($stateProvider, $locationProvider, $urlRouterProvider) {
