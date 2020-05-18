@@ -1,0 +1,8 @@
+<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <md-nav-item class="md-accent" md-nav-href="/#!/home" name="home" ng-hide="!login">Home</md-nav-item>
+    <md-nav-item md-nav-href="/#!/users" name="users" ng-hide=!login>Usuarios</md-nav-item>
+    <md-nav-item md-nav-href="/#!/calendar" name="calendar" ng-hide=!login>Calendario</md-nav-item>
+    <md-nav-item md-nav-href="/#!/login" name="login" ng-hide=login>Login</md-nav-item>
+    <md-nav-item md-nav-href="/#!/register" name="register" ng-hide=login>Registro</md-nav-item>
+    <md-nav-item md-nav-href="/#!/home" name="home" ng-click="logout()" ng-hide=!login>Logout</md-nav-item>
+</md-nav-bar>

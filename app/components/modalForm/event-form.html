@@ -30,7 +30,7 @@
     <form name="event-form">
       <md-content layout="column" class="md-padding">
         <md-input-container>
-          <textarea id="tinyId" ui-tinymce="tinymceOptions" ng-model="event.tinymceModel"></textarea>
+          <textarea id="tinyId" ui-tinymce="tinymceOptions" ng-model="event.description"></textarea>
         </md-input-container>
         <div layout="row" layout-align="center center">   
           <md-button wz-previous class="md-raised md-primary">Atras</md-button>
@@ -45,8 +45,8 @@
         <md-input-container>
           <h2>Evento: {{event.title}}</h2>
           <p>Sala: {{event.room}}</p>
-          <p>Fecha: {{event.start}}</p>
-          <p>Descripción: {{ event.tinymceModel | removeHtml }}</p>
+          <p>Fecha: {{event.start_format}}</p>
+          <p>Descripción: {{ event.description | removeHtml }}</p>
         </md-input-container>
         <div layout="row" layout-align="center center">  
           <md-button wz-previous class="md-raised md-primary">Atras</md-button>

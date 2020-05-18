@@ -6,9 +6,9 @@
     <form name="loginForm">
       <md-content layout="column" class="md-padding">
         <md-input-container>
-          <label>Usuario</label>
-          <input required type="text" ng-model="loginModel.username" name="username" />
-          <div ng-messages="loginForm.username.$error">
+          <label>Email</label>
+          <input required type="text" ng-model="loginModel.email" name="email" />
+          <div ng-messages="loginForm.email.$error">
             <div ng-message="required">This is required.</div>
           </div>
         </md-input-container>
@@ -20,7 +20,7 @@
           </div>
         </md-input-container>
         <div layout="row" layout-align="center center">
-          <md-button ng-click="Login()" type="submit" class="md-raised md-primary">Iniciar Sesion</md-button>
+          <md-button ng-click="Login(loginModel)" type="submit" class="md-raised md-primary">Iniciar Sesion</md-button>
           <div flex="flex"></div>
           <modal-form
             button="Registrarse"

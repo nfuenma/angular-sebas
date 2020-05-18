@@ -9,40 +9,56 @@
         <div layout="row">
             <md-input-container flex="50">
             <label>Nombre</label>
-            <input required name="clientName" ng-model="project.name">
-            <div ng-messages="projectForm.clientName.$error">
+            <input required name="firstname" ng-model="project.firstname">
+            <div ng-messages="projectForm.firstname.$error">
                 <div ng-message="required">This is required.</div>
             </div>
             </md-input-container>
 
             <md-input-container flex="50">
                 <label>Apellido</label>
-                <input required name="clientName" ng-model="project.lastName">
-                <div ng-messages="projectForm.clientName.$error">
+                <input required name="lastname" ng-model="project.lastname">
+                <div ng-messages="projectForm.lastname.$error">
                     <div ng-message="required">This is required.</div>
                 </div>
-                </md-input-container>
+            </md-input-container>
 
             <md-input-container flex="50">
             <label>Tipo de usuario</label>
-            <md-select name="type" ng-model="project.userType" required>
+            <md-select name="type" ng-model="project.usertype" required>
                 <md-option value="user">Usuario</md-option>
                 <md-option value="admin">Administrador</md-option>
             </md-select>
             </md-input-container>
         </div>
 
-        <md-input-container class="md-block">
+        <div layout="row">
+            <md-input-container flex="50">
             <label>Email</label>
-            <input required type="email" name="clientEmail" ng-model="project.email"
+            <input required type="email" name="email" ng-model="project.email"
                     minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
 
-            <div ng-messages="projectForm.clientEmail.$error" role="alert">
+            <div ng-messages="projectForm.email.$error" role="alert">
             <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                 Your email must be between 10 and 100 characters long and look like an e-mail address.
             </div>
             </div>
-        </md-input-container>
+            </md-input-container>
+            <md-input-container flex="25">
+                <label>Contraseña</label>
+                <input required type="password" name="password" ng-model="project.password">
+                <div ng-messages="projectForm.password.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex="25">
+                <label>Confirmación Contraseña</label>
+                <input required type="password" name="password_confirm" ng-model="project.password_confirm">
+                <div ng-messages="projectForm.password_confirm.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+        </div>
 
         <md-input-container class="md-block">
             <md-checkbox name="tos" ng-model="project.tos" required>

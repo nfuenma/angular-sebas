@@ -7,7 +7,7 @@ angular.module("myApp").controller('ctrlUser', function (Utils, $rootScope, $sco
   $scope.Utils = Utils
   $scope.Register = Utils.register
   $scope.getData = Utils.getData
-
+  console.log("DA",$scope.getData)
     
   
 });

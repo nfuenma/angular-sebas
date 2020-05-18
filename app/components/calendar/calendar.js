@@ -1,19 +1,38 @@
 'use strict';
 
 
-angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $rootScope, $scope, localStorageService, moment) {
+angular.module("myApp").controller('ctrlCalendar', function (
+  Utils, 
+  $mdDialog, 
+  $rootScope, 
+  $scope, 
+  localStorageService, 
+  moment) {
+    
+  $scope.Save_event = Utils.save_event;
+  $scope.getDataEvents = Utils.getDataEvents;
+  $scope.logout = Utils.logout;
+
+  Utils.getDataEvents().then(function({events}) {
+    console.log("RESP",  events)
+    
+    events.map(event => {
+      $scope.events.push(event)
+    })
+  });
+
   $scope.event = {};
-  $scope.events = [
-  ];
+  $scope.events = [];
 
   $scope.eventSources =  [$scope.events];
+  
+
 
 
   $scope.showDialog = function () {
     
     var parentEl = angular.element(document.body);
     
-    console.log("SCOPE", $scope)
     $mdDialog.show({
       parent: parentEl,
       templateUrl:'./components/modalForm/event-form.html',
@@ -24,12 +43,11 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
     }).then(function(result) {
       //result contains username and password
     }, function(){
-      console.log("EXITED")
       //modal exited/cancelled
     });
   }
 
-  $scope.tinymceOptions = {
+  $scope.description = {
     plugins: 'link image code',
     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright ',
     
@@ -47,9 +65,7 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
   }
 
   $scope.saveText = function() {
-    $scope.data = $scope.tinymceModel
-    console.log("DATA", $scope.data)
-  
+    $scope.data = $scope.description
   }
 
    $scope.addEvent = function() {
@@ -68,18 +84,24 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
     $scope.randomNumber = Math.floor(Math.random()*90000) + 10000;;
     
     $scope.saveText()
+
+
     $scope.events.push({
       id: $scope.randomNumber,
       title: $scope.event.title,
-      start: $scope.event.started,
+      start: $scope.event.start,
+      end: $scope.event.end,
       room: $scope.event.room,
-      description: $scope.event.tinymceModel,
+      description: $scope.event.description,
       allDay: true
     });
   
-    console.log("SCOPE", $scope)
-    console.log($scope.eventSources)
+    $scope.Save_event($scope.event);
+    $scope.getDataEvents();
+
     $mdDialog.hide()
+    console.log("eventSources",  $scope.eventSources)
+    console.log("eventSources2",  $scope.eventSources2)
   }
 
   $scope.closeModal = function(){
@@ -91,18 +113,20 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
   }
 
   $scope.dayClickEvent = function( date, allDay, jsEvent, view ) {
-    
+    console.log("DATA", date)
     var d = new Date(date._d);
-    $scope.event.started = d.setMinutes( d.getMinutes() + 300 );
-    $scope.event.start = moment(d).format('LLL')
-    console.log("dateClicked", date._d)   
+    $scope.event.start = d.setMinutes( d.getMinutes() + 300 );
+    $scope.event.end = d.setMinutes( d.getMinutes() + 330 );
+
+
+    $scope.event.start_format = moment(d).format('LLL')  
   
     $scope.showDialog()
   }
 
   $scope.eventClickEvent = function(data) {
     $scope.eventSave = data
-    console.log("EVENTO SHOW",$scope)
+
     var parentEl = angular.element(document.body);
     
     $mdDialog.show({
@@ -115,23 +139,17 @@ angular.module("myApp").controller('ctrlCalendar', function (Utils, $mdDialog, $
     }).then(function(result) {
       //result contains username and password
     }, function(){
-      console.log("EXITED")
+    
       //modal exited/cancelled
     });
   }
 
   $scope.alertOnDrop = function(date, allDay, jsEvent, view ){
-    console.log("SE MOVIO EL EVENTO date", date)
-    console.log("SE MOVIO EL EVENTO allDay", allDay)
-    console.log("SE MOVIO EL EVENTO jsEvent", jsEvent)
-    console.log("SE MOVIO EL EVENTO view", view)
+
   }
 
   $scope.alertOnResize = function(date, allDay, jsEvent, view ) {
-    console.log("SE RESICE EL EVENTO", date)
-    console.log("SE RESICE EL EVENTO", allDay)
-    console.log("SE RESICE EL EVENTO", jsEvent)
-    console.log("SE RESICE EL EVENTO", view)
+
   }
   
   $scope.uiConfig = {

@@ -17,17 +17,13 @@
   <link rel="stylesheet" type="text/css" href="./bower_components/angular-wizard/dist/angular-wizard.min.css">
 </head>
 <body layout="column" layout-xs="column">
-  <md-content>
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item class="md-accent" md-nav-href="/#!/home" name="home">Home</md-nav-item>
-      <md-nav-item md-nav-href="/#!/login" name="login">Login</md-nav-item>
-      <md-nav-item md-nav-href="/#!/register" name="register">Registro</md-nav-item>
-      <md-nav-item md-nav-href="/#!/users" name="users">Usuarios</md-nav-item>
-      <md-nav-item md-nav-href="/#!/calendar" name="calendar">Calendario</md-nav-item>
-
-    </md-nav-bar>
+  <md-content ng-controller="app">
+    <nav-bar
+      login="isAuth()"
+    >
+    </nav-bar>
     <div class="ext-content">
-      <div ui-view></div>
+      <div ui-view></div> 
 
     </div>
   </md-content>
@@ -58,20 +54,21 @@
   <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
   <script type="text/javascript" src="local-storage/angular-local-storage.min.js"></script>
   <script src="bower_components/angular-moment/angular-moment.js"></script>
-  <script src="app.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+  <script src="https://code.angularjs.org/1.7.5/angular-cookies.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
   
+  <script src="app.js"></script>
+  <script src="./config/server.js"></script>
   <script src="./filters/filter.js"></script>
   <script src="./factory/initials.js"></script>
   <script src="./directives/card-info.js"></script>
   <script src="./components/login/login.js"></script>
   <script src="./components/users/users.js"></script>
   <script src="./directives/modal-form.js"></script>
+  <script src="./directives/nav-bar.js"></script>
   <script src="./components/register/register.js"></script>
   <script src="./components/calendar/calendar.js"></script>
-  
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
